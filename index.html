@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ecuaciones de Maxwell</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400">
+  <!-- MathJax para fórmulas matemáticas -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body {background: #eef2f7; font-family: Roboto, sans-serif; color: #222;}
+    header {text-align: center; background: linear-gradient(90deg,#4158d0,#c850c0); color: #fff; padding:2rem 0; box-shadow:0 4px 10px #bbb;}
+    h1 {font-size:3rem; animation: pulse 1s infinite alternate;}
+    @keyframes pulse{to{letter-spacing:0.15em}}
+    .menu-btn{margin:0.5em; padding:0.5em 1.2em; border:none; border-radius:12px; background:#c850c0;color:#fff;font-weight:700; cursor:pointer; transition:background 0.3s;}
+    .menu-btn:hover,.menu-btn.active{background:#4158d0}
+    .card{background:#fff;border-radius:15px;box-shadow:0 2px 8px #bbb;padding:2em;margin:2em 0;}
+    .formula {font-size: 1.3em; background: #1e1e1e; color: #8ae234; padding: .5em 1em; border-radius: 8px; margin: 0.7em 0;}
+    img {max-width: 320px; display:block; margin:1em auto;}
+    .footer{margin-top:2em;text-align:center;font-size:1em;color:#4158d0}
+    .hidden {display:none;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ecuaciones de Maxwell</h1>
+    <div>
+      <button class="menu-btn" onclick="showSection('intro')">Intro</button>
+      <button class="menu-btn" onclick="showSection('gaussE')">Gauss E</button>
+      <button class="menu-btn" onclick="showSection('gaussB')">Gauss B</button>
+      <button class="menu-btn" onclick="showSection('faraday')">Faraday</button>
+      <button class="menu-btn" onclick="showSection('ampere')">Ampére-Maxwell</button>
+      <button class="menu-btn" onclick="showSection('relacionOEM')">Relación O.E.M.</button>
+      <button class="menu-btn" onclick="showSection('referencias')">Referencias</button>
+
+    </div>
+  </header>
+  <main>
+    <!-- Introducción -->
+    <section id="intro" class="card">
+      <div class="container">
+        <!-- GIF de Maxwell (ajusta el src al nombre real de tu gif) -->
+        <img src="jmaxwell.gif" alt="James Clerk Maxwell" width="5000" height="250">
+        <h1>James Clerk Maxwell:</h1>
+        <h1>Biografía Enfocada en sus Ecuaciones</h1>
+        <p><strong>James Clerk Maxwell</strong> (1831-1879) fue un físico escocés nacido en Edimburgo, reconocido por desarrollar la teoría unificada del electromagnetismo, que transformó nuestra comprensión del universo físico.</p>
+    
+        <h2>Desarrollo de las Ecuaciones de Maxwell</h2>
+        
+        <p>Entre <strong>1861 y 1865</strong>, Maxwell formuló las cuatro ecuaciones fundamentales que describen el electromagnetismo. Su trabajo se desarrolló en dos etapas clave:</p>
+    
+        <h3>1861: "On Physical Lines of Force"</h3>
+        
+        <p>En este artículo aparecieron por primera vez las cuatro ecuaciones en forma separada:</p>
+        
+        <ul>
+            <li><strong>Ecuación (56): Ley de Gauss para el magnetismo</strong></li>
+        </ul>
+        
+        <div class="equation">
+            \[\nabla \cdot \mathbf{B} = 0\]
+        </div>
+        
+        <ul>
+            <li><strong>Ecuación (112): Ley de Ampère con la corriente de desplazamiento</strong> (la contribución más notable de Maxwell)</li>
+            <li><strong>Ecuación (115): Ley de Gauss para la electricidad</strong></li>
+        </ul>
+        
+        <div class="equation">
+            \[\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}\]
+        </div>
+        
+        <ul>
+            <li><strong>Ecuación (54): Ley de Faraday</strong></li>
+        </ul>
+        
+        <div class="equation">
+            \[\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}\]
+        </div>
+    
+        <h3>1865: "A Dynamical Theory of the Electromagnetic Field"</h3>
+        
+        <p>Maxwell publicó su teoría completa donde utilizó la corrección que había hecho a la Ley de Ampère para derivar la <strong>ecuación de ondas electromagnéticas</strong>.</p>
+    
+        <h2>La Corriente de Desplazamiento: La Gran Innovación</h2>
+        
+        <p>El concepto de <span class="highlight">corriente de desplazamiento</span> fue la innovación crucial de Maxwell. Maxwell reconoció que la ley original de Ampère no explicaba situaciones donde los campos eléctricos cambiaban con el tiempo, como en los condensadores. Introdujo un término adicional que representaba que los campos magnéticos también podían generarse por campos eléctricos cambiantes.</p>
+        
+        <p>La <strong>ley de Ampère-Maxwell modificada</strong> quedó así:</p>
+        
+        <div class="equation">
+            \[\oint \mathbf{B} \cdot d\mathbf{l} = \mu_0(I + I_d)\]
+        </div>
+        
+        <p>donde la corriente de desplazamiento es:</p>
+        
+        <div class="equation">
+            \[I_d = \epsilon_0 \frac{d\Phi_E}{dt}\]
+        </div>
+        
+        <p>O en forma diferencial, la ley de Ampère-Maxwell completa es:</p>
+        
+        <div class="equation">
+            \[\nabla \times \mathbf{B} = \mu_0\mathbf{J} + \mu_0\epsilon_0\frac{\partial \mathbf{E}}{\partial t}\]
+        </div>
+        
+        <p>Esta corrección completó la simetría de las ecuaciones: así como un campo magnético cambiante produce un campo eléctrico (ley de Faraday), un campo eléctrico cambiante produce un campo magnético.</p>
+    
+        <h2>La Predicción de las Ondas Electromagnéticas</h2>
+        
+        <p>De sus ecuaciones, Maxwell derivó que los campos eléctrico y magnético podían propagarse como <strong>ondas a través del espacio vacío</strong>. Calculó la velocidad de estas ondas usando la fórmula:</p>
+        
+        <div class="equation">
+            \[c = \frac{1}{\sqrt{\mu_0 \epsilon_0}}\]
+        </div>
+        
+        <p>donde:</p>
+        <ul>
+            <li>\(\mu_0\) es la permeabilidad del vacío</li>
+            <li>\(\epsilon_0\) es la permitividad del vacío</li>
+        </ul>
+        
+        <p>El resultado fue aproximadamente \(3 \times 10^8\) m/s, <span class="highlight">exactamente la velocidad de la luz</span>. Esta coincidencia no podía ser casual. Maxwell concluyó que <strong>la luz es una onda electromagnética</strong>.</p>
+    
+        <h2>Las Cuatro Ecuaciones de Maxwell (Forma Moderna)</h2>
+        
+        <p>En su forma diferencial moderna, las cuatro ecuaciones de Maxwell son:</p>
+        
+        <div class="equation">
+            <p><strong>1. Ley de Gauss (electricidad):</strong></p>
+            \[\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}\]
+            <p style="margin-top: 10px; font-size: 0.9em; color: #555;">Los campos eléctricos divergen desde las cargas eléctricas</p>
+        </div>
+        
+        <div class="equation">
+            <p><strong>2. Ley de Gauss para el magnetismo:</strong></p>
+            \[\nabla \cdot \mathbf{B} = 0\]
+            <p style="margin-top: 10px; font-size: 0.9em; color: #555;">No existen monopolos magnéticos</p>
+        </div>
+        
+        <div class="equation">
+            <p><strong>3. Ley de Faraday:</strong></p>
+            \[\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}\]
+            <p style="margin-top: 10px; font-size: 0.9em; color: #555;">Un campo magnético cambiante induce un campo eléctrico</p>
+        </div>
+        
+        <div class="equation">
+            <p><strong>4. Ley de Ampère-Maxwell:</strong></p>
+            \[\nabla \times \mathbf{B} = \mu_0\mathbf{J} + \mu_0\epsilon_0\frac{\partial \mathbf{E}}{\partial t}\]
+            <p style="margin-top: 10px; font-size: 0.9em; color: #555;">Los campos magnéticos se generan por corrientes eléctricas y campos eléctricos cambiantes</p>
+        </div>
+    
+        <h2>La Gran Unificación</h2>
+        
+        <p>En 1864, Maxwell presentó su teoría ante la Royal Society, afirmando: <em>"Parece que tenemos una fuerte razón para concluir que la luz misma es una perturbación electromagnética en forma de ondas que se propagan según las leyes electromagnéticas"</em>.</p>
+        
+        <p>Esta unificación de <strong>electricidad, magnetismo y óptica</strong> fue la segunda gran unificación en física después de Newton. Maxwell demostró que estos fenómenos aparentemente separados eran manifestaciones diferentes de la misma fuerza fundamental: la <strong>fuerza electromagnética</strong>.</p>
+    
+        <h2>El Tratado de 1873</h2>
+        
+        <p>En 1873, Maxwell publicó su obra maestra <strong>"A Treatise on Electricity and Magnetism"</strong>, que contenía sus ecuaciones completas en forma de veinte ecuaciones (posteriormente reducidas a cuatro por Oliver Heaviside). Este tratado hizo por el electromagnetismo lo que los <em>Principia</em> de Newton habían hecho por la mecánica.</p>
+    
+        <h2>Legado</h2>
+        
+        <p>Maxwell murió en 1879 sin ver la confirmación experimental completa de su teoría. En <strong>1887</strong>, Heinrich Hertz demostró experimentalmente la existencia de ondas electromagnéticas, validando las predicciones de Maxwell. Este descubrimiento abrió la puerta a tecnologías como la radio, televisión y radar.</p>
+        
+        <p>Albert Einstein consideró que "el cambio en la concepción de la realidad" provocado por Maxwell fue "el más profundo y fructífero que la física ha experimentado desde Newton". Las ecuaciones de Maxwell forman, junto con las leyes de Newton y las de la termodinámica, la base de la física clásica.</p>
+        
+        <div style="margin-top: 40px; padding: 20px; background-color: #e8f4f8; border-radius: 5px; border-left: 4px solid #3498db;">
+            <p style="margin: 0;"><strong>Nota:</strong> Este documento usa MathJax para renderizar las ecuaciones en LaTeX. Las ecuaciones se mostrarán correctamente cuando el archivo HTML se visualice en un navegador con conexión a internet.</p>
+        </div>
+      </div>
+    </section>    
+    <!-- Gauss Electricidad -->
+    <section id="gaussE" class="card hidden">
+      <div class="container">
+        <div style="font-size:2rem;font-weight:bold;color:#2c5282;text-align:center;margin-bottom:18px;">
+          Ley de Gauss para el Campo Eléctrico
+        </div>
+        <div class="intro" style="background:#edf2f7;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin-bottom:30px;">
+          <p>La Ley de Gauss constituye uno de los pilares fundamentales del electromagnetismo clásico y representa una de las cuatro ecuaciones de Maxwell. Esta ley establece una relación profunda y elegante entre el campo eléctrico y la distribución de carga eléctrica que lo origina.</p>
+        </div>
+        <hr>
+        <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">I. FORMA DIFERENCIAL DE LA LEY DE GAUSS</h2>
+        <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">1.1 Enunciado Matemático</h3>
+        <p>La forma diferencial de la Ley de Gauss se expresa mediante la siguiente ecuación:</p>
+        <div class="equation-block" style="background:#f7fafc;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin:25px 0;">
+          \[\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}\]
+        </div>
+        <p>Esta formulación relaciona una propiedad local del campo eléctrico con una propiedad local de la distribución de carga en un punto específico del espacio.</p>
+        <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">1.2 Análisis Detallado de los Componentes</h3>
+        <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">1.2.1 El Operador Divergencia: \(\nabla \cdot \mathbf{E}\)</h4>
+        <p>El operador divergencia, denotado por el símbolo \(\nabla \cdot\), constituye un operador diferencial que actúa sobre un campo vectorial para producir un campo escalar. En el contexto de la Ley de Gauss, este operador se aplica al campo eléctrico \(\mathbf{E}\).</p>
+        <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+          <b>Definición matemática en coordenadas cartesianas:</b>
+          <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+            \[\nabla \cdot \mathbf{E} = \frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\]
+          </div>
+          donde \(E_x\), \(E_y\) y \(E_z\) representan las componentes del campo eléctrico en las direcciones x, y, z del sistema de coordenadas cartesianas.
+        </div>
+        <p><b>Significado físico:</b></p>
+        <p>La divergencia de un campo vectorial mide la tendencia del campo a divergir o converger en un punto dado del espacio. Específicamente, la divergencia del campo eléctrico proporciona información sobre las fuentes o sumideros del campo en cada punto:</p>
+        <ul>
+          <li><b>Divergencia positiva</b> (\(\nabla \cdot \mathbf{E} > 0\)): Indica la presencia de una fuente de campo eléctrico. Las líneas de campo se originan en ese punto y divergen radialmente hacia el exterior. Esta situación corresponde a la existencia de carga eléctrica positiva en dicho punto.</li>
+          <li><b>Divergencia negativa</b> (\(\nabla \cdot \mathbf{E} < 0\)): Indica la presencia de un sumidero de campo eléctrico. Las líneas de campo convergen hacia ese punto desde todas las direcciones. Esta situación corresponde a la existencia de carga eléctrica negativa en dicho punto.</li>
+          <li><b>Divergencia nula</b> (\(\nabla \cdot \mathbf{E} = 0\)): Indica la ausencia de fuentes o sumideros netos en ese punto. El número de líneas de campo que entran es exactamente igual al número de líneas que salen. Esta situación corresponde a una región del espacio sin carga eléctrica.</li>
+        </ul>
+        <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">1.2.2 El Campo Eléctrico: \(\mathbf{E}\)</h4>
+        <p>El campo eléctrico \(\mathbf{E}\) es una magnitud vectorial que describe la fuerza eléctrica por unidad de carga que experimentaría una carga de prueba positiva infinitesimal colocada en cualquier punto del espacio.</p>
+        <p><b>Unidades:</b> N/C o V/m. <b>Naturaleza vectorial:</b> El vector campo eléctrico apunta en la dirección en la que una carga positiva experimentaría una fuerza. <b>Origen físico:</b> Las cargas positivas producen campos hacia fuera, las negativas hacia dentro.</p>
+        <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">1.2.3 La Densidad Volumétrica de Carga: \(\rho\)</h4>
+        <p>La densidad volumétrica de carga, \(\rho\), es la cantidad de carga por unidad de volumen.</p>
+        <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+          <b>Definición matemática:</b>
+          <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+            \[\rho(\mathbf{r}) = \lim_{\Delta V \to 0} \frac{\Delta Q}{\Delta V} = \frac{dQ}{dV}\]
+          </div>
+          donde \(dQ\) representa una cantidad infinitesimal de carga contenida en un elemento de volumen infinitesimal \(dV\), y \(\mathbf{r}\) denota el vector de posición.
+        </div>
+        <p><b>Unidades:</b> C/m³.</p>
+        <p><b>Relación con la carga total: </b></p>
+        <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+          \[Q = \int_V \rho(\mathbf{r}) \, dV\]
+        </div>
+        <div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+          <b>Otras densidades de carga:</b>
+          <ul>
+            <li><b>Densidad lineal de carga</b> (\(\lambda\)): Carga por unidad de longitud, \(\lambda = dQ/dl\), C/m</li>
+            <li><b>Densidad superficial de carga</b> (\(\sigma\)): Carga por unidad de área, \(\sigma = dQ/dA\), C/m²</li>
+          </ul>
+        </div>
+        <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">1.2.4 La Permitividad del Vacío: \(\epsilon_0\)</h4>
+        <p>La permitividad eléctrica del espacio libre, \(\epsilon_0\) (epsilon cero), es una constante fundamental que mide la capacidad del vacío para "permitir" la existencia de un campo eléctrico.</p>
+        <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+          <b>Valor numérico exacto:</b>
+          <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+            \[\epsilon_0 = 8.854\,187\,8128 \times 10^{-12} \, \text{F/m}\]
+          </div>
+          <b>Unidades:</b> Faradios por metro (F/m) o C²/(N·m²).
+          <b>Análisis dimensional:</b>
+          <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+            \[[\epsilon_0] = M^{-1}L^{-3}T^4A^2\]
+          </div>
+          <b>Relación con la constante de Coulomb:</b>
+          <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+            \[k = \frac{1}{4\pi\epsilon_0} \approx 8.99 \times 10^9 \, \text{N·m}^2/\text{C}^2\]
+          </div>
+        </div>
+        <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">1.3 Interpretación Física de la Forma Diferencial</h3>
+        <p>La forma diferencial de la Ley de Gauss establece que en cada punto del espacio, la divergencia del campo eléctrico es directamente proporcional a la densidad de carga en ese punto, siendo la constante de proporcionalidad el recíproco de la permitividad del vacío.</p>
+        <div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+          <b>Consecuencias importantes:</b>
+          <ol>
+            <li>En regiones del espacio donde no existe carga eléctrica (\(\rho = 0\)), la divergencia del campo eléctrico es nula (\(\nabla \cdot \mathbf{E} = 0\)). Esto no implica necesariamente que el campo eléctrico sea cero, sino únicamente que el campo no tiene fuentes ni sumideros en esa región.</li>
+            <li>La forma diferencial es particularmente útil en la resolución de problemas mediante métodos numéricos y en el análisis teórico de las propiedades del campo eléctrico.</li>
+          </ol>
+        </div>
+        <hr>
+        <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">II. FORMA INTEGRAL DE LA LEY DE GAUSS</h2>
+        <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">2.1 Enunciado Matemático</h3>
+        <p>La forma integral de la Ley de Gauss se expresa mediante la siguiente ecuación:</p>
+        <div class="equation-block" style="background:#f7fafc;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin:25px 0;">
+          \[\oint_S \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{enc}}{\epsilon_0}\]
+        </div>
+        <p>Esta formulación establece una relación entre el flujo total del campo eléctrico a través de una superficie cerrada y la carga total encerrada por dicha superficie.</p>
+        <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">2.2 Análisis Detallado de los Componentes</h3>
+        <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">2.2.1 El Flujo Eléctrico: \(\Phi_E\)</h4>
+        <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+          <b>Definición:</b> El flujo eléctrico mide la cantidad de campo eléctrico que atraviesa una superficie:
+          <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+            \[\Phi_E = \oint_S \mathbf{E} \cdot d\mathbf{A}\]
+          </div>
+          <b>Unidades:</b> N·m²/C o V·m.
+          <b>Analogía conceptual:</b> Como el flujo de un líquido a través de una malla.
+        </div>
+        <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">2.2.2 El Símbolo de Integral de Superficie Cerrada: \(\oint_S\)</h4>
+        <p>La integral de superficie cerrada (\(\oint_S\)) suma el producto del campo eléctrico y el área sobre todos los elementos infinitesimales de la superficie gaussiana.</p>
+        <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">2.2.3 El Elemento Diferencial de Área: \(d\mathbf{A}\)</h4>
+        <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+          <b>Naturaleza vectorial:</b>
+          <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+            \[d\mathbf{A} = \hat{\mathbf{n}} \, dA\]
+          </div>
+          <ul>
+            <li>\(\hat{\mathbf{n}}\): Vector normal a la superficie</li>
+            <li>\(dA\): Área escalar infinitesimal</li>
+          </ul>
+          <b>Convención:</b> Para superficies cerradas, siempre apunta hacia afuera.
+        </div>
+        <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">2.2.4 El Producto Escalar: \(\mathbf{E} \cdot d\mathbf{A}\)</h4>
+        <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+          <b>Expresión:</b>
+          <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+            \[\mathbf{E} \cdot d\mathbf{A} = |\mathbf{E}| \, |d\mathbf{A}| \, \cos\theta = E \, dA \, \cos\theta\]
+          </div>
+          <ul>
+            <li>Cuando \(\theta = 0°\): flujo máximo positivo.</li>
+            <li>Cuando \(\theta = 90°\): flujo nulo.</li>
+            <li>Cuando \(\theta = 180°\): flujo máximo negativo.</li>
+          </ul>
+        </div>
+        <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">2.2.5 La Carga Total Encerrada: \(Q_{enc}\)</h4>
+        <p>La cantidad \(Q_{enc}\) ("enclosed", encerrada) es la suma de las cargas dentro de la superficie gaussiana.</p>
+        <b>Unidades:</b> Coulombs (C).
+        <b>Distribuciones:</b>
+        <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+          <p>Discretas:</p>
+          \[Q_{enc} = \sum_{i=1}^{n} q_i\]
+          <p>Continuas:</p>
+          \[Q_{enc} = \int_V \rho(\mathbf{r}) \, dV\]
+        </div>
+        <div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+          <b>Principio:</b> Solo las cargas internas aportan flujo neto de campo. Las externas no lo modifican.
+        </div>
+        <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">2.3 Interpretación Física de la Forma Integral</h3>
+        <p>La forma integral de la Ley de Gauss establece que el flujo eléctrico total que atraviesa cualquier superficie cerrada es proporcional a la carga encerrada dentro de esa superficie, donde la constante de proporcionalidad es \(1/\epsilon_0\).</p>
+        <div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+          <b>Consecuencias importantes:</b>
+          <ol>
+            <li><b>Independencia de la geometría:</b> El flujo es el mismo cualquiera sea la forma de la superficie, mientras encierre la misma carga.</li>
+            <li><b>Conservación del flujo:</b> Si no hay carga encerrada (\(Q_{enc} = 0\)), el flujo neto es cero.</li>
+            <li><b>Universalidad:</b> La ley aplica para cualquier distribución y superficie cerrada, sin importar geometría ni complejidad.</li>
+          </ol>
+        </div>
+        <hr>
+        <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">III. RELACIÓN ENTRE LAS FORMAS DIFERENCIAL E INTEGRAL</h2>
+        <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">3.1 El Teorema de la Divergencia</h3>
+        <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+          <b>Enunciado:</b>
+          <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+            \[\oint_S \mathbf{F} \cdot d\mathbf{A} = \int_V (\nabla \cdot \mathbf{F}) \, dV\]
+          </div>
+          <p>La integral de superficie de un campo sobre una superficie cerrada es igual a la integral de la divergencia en el volumen encerrado.</p>
+        </div>
+        <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">3.2 Derivación desde la Forma Integral</h3>
+        <div class="subsection" style="margin-left:20px;">
+          <b>Paso a paso:</b>
+          <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+
+            \(\oint_S \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{enc}}{\epsilon_0}\) <br>
+            \(Q_{enc} = \int_V \rho dV\)<br>
+            \(\oint_S \mathbf{E} \cdot d\mathbf{A} = \frac{1}{\epsilon_0} \int_V \rho dV\)<br>
+            \(\int_V (\nabla \cdot \mathbf{E}) dV = \frac{1}{\epsilon_0} \int_V \rho dV\)<br>
+            \(\int_V (\nabla \cdot \mathbf{E}) dV = \int_V \frac{\rho}{\epsilon_0} dV\)<br>
+            \(\int_V \left(\nabla \cdot \mathbf{E} - \frac{\rho}{\epsilon_0}\right) dV = 0\)<br>
+            \(\boxed{\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}}\)
+      </div>
+      <p>Esta derivación demuestra la equivalencia matemática completa entre ambas formulaciones.</p>
+    </div>
+    <hr>
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">IV. CONCEPTO DE SUPERFICIE GAUSSIANA</h2>
+    <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">4.1 Definición y Características</h3>
+    <p>Una superficie gaussiana es una superficie cerrada ideal imaginaria, creada para aplicar la Ley de Gauss en problemas de electrostática.</p>
+    <div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+      <b>Propiedades fundamentales:</b>
+      <ol>
+        <li><b>Carácter imaginario:</b> No es física, sino matemática para facilitar los cálculos.</li>
+        <li><b>Arbitrariedad geométrica:</b> Puede adoptar cualquier forma, pero debe ser cerrada.</li>
+        <li><b>Elección estratégica:</b> Se escoge para aprovechar simetrías y simplificar cálculos.</li>
+      </ol>
+    </div>
+    <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">4.2 Criterios de Simetría y Selección Óptima</h3>
+    <p>La eficacia de la superficie gaussiana depende de la simetría del sistema físico:</p>
+    <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+      <b>Condiciones para aplicación eficiente:</b>
+      <ol>
+        <li>El campo eléctrico debe ser paralelo o perpendicular al vector de área en cada zona relevante.</li>
+        <li>La magnitud del campo debe ser constante donde el flujo eléctrico no es cero.</li>
+      </ol>
+    </div>
+    <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">4.3 Clasificación según Tipo de Simetría</h3>
+    <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">4.3.1 Simetría Esférica</h4>
+    <p><b>Sistemas:</b> Cargas puntuales y distribuciones esféricas. <b>Superficie óptima:</b> Esfera concéntrica.</p>
+    <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">4.3.2 Simetría Cilíndrica</h4>
+    <p><b>Sistemas:</b> Hilos infinitos, cilindros cargados. <b>Superficie óptima:</b> Cilindro coaxial.</p>
+    <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">4.3.3 Simetría Planar</h4>
+    <p><b>Sistemas:</b> Placas cargadas, planos. <b>Superficie óptima:</b> Cilindro tipo “píldora” alrededor del plano.</p>
+  </div>
+
+
+</section>     
+
+
+    <!-- Gauss Magnetismo -->
+<section id="gaussB" class="card hidden">
+  <div class="container">
+    <div style="font-size:2rem;font-weight:bold;color:#2c5282;text-align:center;margin-bottom:18px;">
+      Ley de Gauss para el Campo Magnético
+    </div>
+    <div class="intro" style="background:#edf2f7;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin-bottom:30px;">
+      <p>La Ley de Gauss para el campo magnético constituye la segunda de las cuatro Ecuaciones de Maxwell y revela la ausencia de monopolos magnéticos en la naturaleza, proporcionando información crucial sobre la estructura topológica del campo magnético.</p>
+    </div>
+    <hr>
+
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      I. FORMA DIFERENCIAL DE LA LEY DE GAUSS PARA EL MAGNETISMO
+    </h2>
+    <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">1.1 Enunciado Matemático</h3>
+    <p>La forma diferencial de la Ley de Gauss para el campo magnético se expresa mediante la siguiente ecuación:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin:25px 0;">
+      \[\nabla \cdot \mathbf{B} = 0\]
+    </div>
+    <p>Esto significa que la divergencia del campo magnético es idénticamente nula en todos los puntos: el campo magnético es <b>solenoidal</b>.</p>
+    <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">1.2 Análisis Detallado de los Componentes</h3>
+  
+    <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+      1.2.1 El Operador Divergencia: \(\nabla \cdot \mathbf{B}\)
+    </h4>
+    <p>El operador divergencia mide la “tendencia” de un campo a salir o entrar de una región. En coordenadas cartesianas:</p>
+    <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+      <b>Definición matemática:</b>
+      <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+        \[\nabla \cdot \mathbf{B} = \frac{\partial B_x}{\partial x} + \frac{\partial B_y}{\partial y} + \frac{\partial B_z}{\partial z}\]
+      </div>
+      donde \(B_x\), \(B_y\), \(B_z\) son las componentes del campo magnético.
+    </div>
+    <div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+      <b>Significado físico:</b> <br>
+      \(\nabla \cdot \mathbf{B} = 0\) implica que el campo magnético no tiene fuentes (de donde “salga” el campo) ni sumideros (donde “entre” el campo). Sus líneas nunca empiezan ni terminan, siempre forman lazos cerrados.
+    </div>
+  
+    <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+      1.2.2 El Campo Magnético: \(\mathbf{B}\)
+    </h4>
+    <p>El campo magnético \(\mathbf{B}\) (densidad de flujo magnético o inducción magnética) es un campo vectorial. <b>Unidades:</b> Tesla (T) en SI, Gauss (G) en CGS.</p>
+    <ul>
+      <li>Producido por corrientes eléctricas (cargas en movimiento).</li>
+      <li>Producido por dipolos magnéticos en materiales ferromagnéticos.</li>
+      <li>Pueden surgir de campos eléctricos variables (Ley de Faraday-Maxwell).</li>
+    </ul>
+  
+    <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+      1.2.3 Campo Vectorial Solenoidal
+    </h4>
+    <p>
+      Un campo cuyo divergencia es cero en todos los puntos, como \(\mathbf{B}\), se llama <b>solenoidal</b> o de divergencia nula.
+    </p>
+    <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+      <b>Propiedad:</b> Para un campo solenoidal, las líneas de campo nunca pueden comenzar ni terminar, solo pueden formar lazos cerrados o extenderse hasta el infinito.
+    </div>
+    <p>Esto diferencia al campo magnético del campo eléctrico (donde hay divergencia no nula en puntos con carga).</p>
+  
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      1.3 Interpretación Física: Ausencia de Monopolos Magnéticos
+    </h2>
+    <p>
+      La ecuación \(\nabla \cdot \mathbf{B} = 0\) nos dice que <b>no existen monopolos magnéticos</b>: no hay polos norte o sur “solos”. 
+      Si cortas un imán, siempre consigues dos imanes más pequeños, cada uno con polo norte y sur.
+    </p>
+    <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+      <b>¿Qué sería un monopolo?</b>
+      <p>Una partícula o región con solo un polo magnético (norte o sur), igual que una carga positiva o negativa aislada; pero no existen experimentalmente.</p>
+    </div>
+    <ul>
+      <li>Cargas eléctricas pueden existir aisladas, polos magnéticos no.</li>
+      <li>Polos magnéticos SOLO aparecen en pares (norte-sur).</li>
+      <li>Parte un imán y tendrás dos imanes completos, no polos aislados.</li>
+    </ul>
+    <p><b>Si existieran monopolos:</b> la ecuación sería \(\nabla \cdot \mathbf{B} = \mu_0 \rho_m\). Pero toda la evidencia muestra que \(\rho_m = 0\).</p>
+  
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      1.4 Consecuencias de la Forma Diferencial
+    </h2>
+    <div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+      <ol>
+        <li><b>Líneas de campo magnético son siempre cerradas:</b> No empiezan ni terminan en el espacio libre.</li>
+        <li><b>Flujo magnético neto por superficie cerrada es cero:</b> (Se explica en la siguiente sección integral).</li>
+        <li><b>No se pueden aislar polos magnéticos:</b> Siempre vienen en pares, no existen monopolos detectados en la naturaleza.</li>
+      </ol>
+    </div>
+  </div>
+
+  <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+  II. FORMA INTEGRAL DE LA LEY DE GAUSS PARA EL MAGNETISMO
+</h2>
+<h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">2.1 Enunciado Matemático</h3>
+<p>La forma integral de la Ley de Gauss para el campo magnético se expresa mediante la siguiente ecuación:</p>
+<div class="equation-block" style="background:#f7fafc;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin:25px 0;">
+  \[\oint_S \mathbf{B} \cdot d\mathbf{A} = 0\]
+</div>
+<p>Esta formulación establece que el flujo magnético total a través de cualquier superficie cerrada es siempre cero.</p>
+
+<h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+  2.2 Análisis Detallado de los Componentes
+</h3>
+<h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+  2.2.1 El Flujo Magnético: \(\Phi_B\)
+</h4>
+<p>El flujo magnético, denotado por \(\Phi_B\), mide la cantidad de campo magnético que atraviesa una superficie determinada.</p>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Expresión matemática:</b>
+  <div class="equation-block" style="background:#f7fafc;padding:20px;margin:20px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;">
+    \[\Phi_B = \oint_S \mathbf{B} \cdot d\mathbf{A}\]
+  </div>
+</div>
+<p><b>Unidades:</b> Weber (Wb) en SI, 1 Wb = 1 T·m². En CGS: 1 Wb = 10⁸ Mx.</p>
+<p><b>Interpretación física:</b> El flujo magnético puede visualizarse como el "número de líneas de campo magnético" que atraviesan una superficie: a más líneas, mayor flujo.</p>
+
+<h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+  2.2.2 Los Componentes Restantes
+</h4>
+<p>
+  Los demás componentes de la ecuación (<span style="font-family:monospace;">\(\oint_S\)</span>, <span style="font-family:monospace;">\(\mathbf{B}\)</span>, <span style="font-family:monospace;">\(d\mathbf{A}\)</span> y <span style="font-family:monospace;">\(\mathbf{B} \cdot d\mathbf{A}\)</span>)
+  se interpretan igual que en la ley de Gauss para el campo eléctrico. Pero aquí, <b>el resultado es siempre cero</b>.
+</p>
+<ul>
+  <li>\(\oint_S\): Integral sobre una superficie cerrada</li>
+  <li>\(\mathbf{B}\): Vector campo magnético</li>
+  <li>\(d\mathbf{A}\): Elemento vectorial perpendicular</li>
+  <li>\(\mathbf{B} \cdot d\mathbf{A}\): Producto escalar, flujo infinitesimal</li>
+</ul>
+<p>Para el campo magnético, el resultado es siempre cero, sin importar el contenido de la superficie.</p>
+
+<h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+  2.3 Interpretación Física de la Forma Integral
+</h3>
+<p>
+  La forma integral implica: <b>El flujo magnético neto a través de cualquier superficie cerrada es siempre cero</b>.
+</p>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Significado profundo:</b> El número de líneas de campo magnético que <b>entran</b> a cualquier volumen cerrado es igual al número de líneas que <b>salen</b> de ese volumen.
+</div>
+<b>Contraste con el campo eléctrico:</b>
+<ul>
+  <li><b>Campo eléctrico:</b> El flujo puede ser positivo, negativo o nulo, según la carga encerrada.</li>
+  <li><b>Campo magnético:</b> El flujo sobre superficie cerrada es <b>siempre cero</b>.</li>
+</ul>
+<div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+  <b>Implicaciones:</b>
+  <ol>
+    <li><b>No existen fuentes ni sumideros magnéticos:</b> No hay "cargas magnéticas" aisladas ni monopolos.</li>
+    <li><b>Líneas de campo magnético son continuas:</b> Siempre lazos cerrados, nunca empiezan ni terminan.</li>
+    <li><b>Conservación topológica:</b> Si una línea entra, otra debe salir; no desaparecen en el volumen.</li>
+  </ol>
+</div>
+
+<h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+  2.4 Validez Universal
+</h3>
+<p>Esta ley aplica para <b>cualquier</b> superficie cerrada sin importar:</p>
+<ul>
+  <li>Forma geométrica</li>
+  <li>Tamaño</li>
+  <li>Ubicación</li>
+  <li>Materiales o corrientes en su interior</li>
+</ul>
+<p>El resultado siempre es:</p>
+<div class="equation-block" style="background:#f7fafc;padding:25px;margin:25px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+  \[\oint_S \mathbf{B} \cdot d\mathbf{A} = 0\]
+</div>
+
+</section>
+
+
+    <!-- Faraday -->
+<section id="faraday" class="card hidden">
+  <div class="container">
+    <div style="font-size:2rem;font-weight:bold;color:#2c5282;text-align:center;margin-bottom:18px;">
+      Ley de Faraday-Lenz
+    </div>
+    <div class="intro" style="background:#edf2f7;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin-bottom:30px;">
+      <p>La Ley de Faraday-Lenz constituye la tercera de las cuatro Ecuaciones de Maxwell y establece una relación fundamental entre campos eléctricos y magnéticos variables en el tiempo. Esta ley describe cómo un campo magnético que cambia temporalmente genera un campo eléctrico inducido, fenómeno conocido como inducción electromagnética.</p>
+    </div>
+    <hr>
+<h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+  I. FORMA DIFERENCIAL DE LA LEY DE FARADAY-LENZ
+</h2>
+
+<h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+  1.1 Enunciado Matemático
+</h3>
+<p>La forma diferencial de la Ley de Faraday-Lenz se expresa mediante la siguiente ecuación:</p>
+<div class="equation-block" style="background:#f7fafc;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin:25px 0;">
+  \[\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}\]
+</div>
+<p>Esto establece que el rotacional (o rotor) del campo eléctrico es igual al negativo de la derivada temporal parcial del campo magnético.</p>
+
+<h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+  1.2 Análisis Detallado de los Componentes
+</h3>
+
+<h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+  1.2.1 El Operador Rotacional: \(\nabla \times \mathbf{E}\)
+</h4>
+<p>El operador rotacional (o rotor) es un operador diferencial que mide la tendencia de un campo a circular alrededor de un punto. En coordenadas cartesianas:</p>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Definición matemática:</b>
+  <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\nabla \times \mathbf{E} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+    \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+    E_x & E_y & E_z \end{vmatrix}\]
+  </div>
+  <b>Forma desarrollada:</b>
+  <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\nabla \times \mathbf{E} = \left(\frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z}\right)\mathbf{i} + \left(\frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x}\right)\mathbf{j} + \left(\frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y}\right)\mathbf{k}\]
+  </div>
+  donde \(E_x\), \(E_y\), \(E_z\) son las componentes del campo eléctrico.
+</div>
+<b>Significado físico:</b>
+<p>El rotacional indica la "rotacionalidad" y el carácter no-conservativo del campo:
+  <ul>
+    <li><b>En electrostática:</b> Si \(\frac{\partial \mathbf{B}}{\partial t} = 0\), el rotacional es cero y el campo es conservativo.</li>
+    <li><b>En electrodinámica:</b> Si hay campos magnéticos variables, el rotacional es distinto de cero: el campo eléctrico es inducido, no conservativo.</li>
+  </ul>
+</p>
+<div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+  <b>Visualización:</b> Si colocaras una rueda en el campo eléctrico, el rotacional indica la rapidez y dirección en que giraría la rueda: si es nulo, no gira; si es no nulo, gira.
+</div>
+
+<h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+  1.2.2 El Campo Eléctrico Inducido: \(\mathbf{E}\)
+</h4>
+<p>En la Ley de Faraday-Lenz, el campo \(\mathbf{E}\) es el <b>campo eléctrico inducido</b> por cambios temporales en el campo magnético.</p>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Distinción:</b>
+  <ul>
+    <li><b>Campo eléctrico conservativo:</b> Proveniente de cargas estáticas; \(\nabla \times \mathbf{E} = 0\). Puede escribirse como \(\mathbf{E} = -\nabla \phi\).</li>
+    <li><b>Campo eléctrico inducido:</b> Proveniente de campos magnéticos cambiantes; \(\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}\). No es gradiente de potencial.</li>
+  </ul>
+</div>
+<p><b>Unidades:</b> N/C o V/m (Sistema Internacional).</p>
+<p><b>Naturaleza física:</b> Describe la fuerza por unidad de carga originada exclusivamente por la variación temporal del campo magnético.</p>
+
+<h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+  1.2.3 Derivada Temporal del Campo Magnético: \(\frac{\partial \mathbf{B}}{\partial t}\)
+</h4>
+<p>\(\frac{\partial \mathbf{B}}{\partial t}\) es la derivada temporal parcial del campo magnético.</p>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Definición:</b>
+  <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\frac{\partial \mathbf{B}}{\partial t} = \lim_{\Delta t \to 0} \frac{\mathbf{B}(t+\Delta t) - \mathbf{B}(t)}{\Delta t}\]
+  </div>
+</div>
+<p><b>Interpretación física:</b> Indica cómo cambia el campo magnético en el tiempo en un punto.</p>
+<p><b>Unidades:</b> Tesla por segundo (T/s). Si la derivada es cero, no hay inducción electromagnética; si es distinta de cero, sí hay.</p>
+<p>El signo negativo indica, por la ley de Lenz, que el campo eléctrico inducido <b>se opone</b> al cambio del campo magnético.</p>
+
+<h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+  1.2.4 El Signo Negativo y la Ley de Lenz
+</h4>
+<p>El signo negativo en la ecuación es la manifestación de la Ley de Lenz.</p>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Enunciado de la Ley de Lenz:</b>
+  <p>"La corriente inducida genera un campo magnético que se opone al cambio que causó la inducción".</p>
+</div>
+<p>Esto asegura que se conserve la energía y que los cambios en el campo magnético nunca se auto-refuercen descontroladamente.</p>
+
+<h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+  1.3 Interpretación Física de la Forma Diferencial
+</h3>
+<p>La forma diferencial nos muestra que <b>campos magnéticos variables generan campos eléctricos inducidos</b> en torno a ellos.</p>
+<div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+  <b>Características del campo eléctrico inducido:</b>
+  <ol>
+    <li><b>No es conservativo:</b> La integral de línea alrededor de lazos cerrados no es cero.</li>
+    <li><b>Campo de estructura circulante:</b> Sus líneas forman lazos alrededor de regiones donde el campo magnético varía.</li>
+    <li><b>Proporcionalidad:</b> Mayor rapidez de cambio del campo magnético → mayor intensidad del campo eléctrico inducido.</li>
+    <li><b>Oposición al cambio magnético:</b> Así se conserva la energía.</li>
+  </ol>
+</div>
+
+<h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+  1.4 Consecuencias de la Forma Diferencial
+</h3>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Consecuencia 1:</b> La integral de línea del campo eléctrico inducido en cualquier lazo cerrado es <b>distinta de cero</b>:
+  <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\oint_C \mathbf{E} \cdot d\mathbf{l} \neq 0\]
+  </div>
+  En electrostática, esta integral siempre es cero.
+</div>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Consecuencia 2:</b> Un campo magnético variable puede inducir corrientes en conductores (inducción electromagnética).
+</div>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Consecuencia 3:</b> Forma diferencial = <b>relación local</b>: propiedades en un punto, no depende de superficies o lazos específicos.
+</div>
+
+
+<h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+  II. FORMA INTEGRAL DE LA LEY DE FARADAY-LENZ
+</h2>
+
+<h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+  2.1 Enunciado Matemático
+</h3>
+<p>La forma integral de la Ley de Faraday-Lenz se expresa mediante la siguiente ecuación:</p>
+<div class="equation-block" style="background:#f7fafc;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin:25px 0;">
+  \[\oint_C \mathbf{E} \cdot d\mathbf{l} = -\frac{d}{dt}\int_S \mathbf{B} \cdot d\mathbf{A}\]
+</div>
+<p>La <b>circulación del campo eléctrico alrededor de una curva cerrada</b> es igual al <b>negativo de la tasa de cambio temporal del flujo magnético</b> a través de cualquier superficie que tenga esa curva como borde.</p>
+
+<h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+  2.2 Análisis Detallado de los Componentes
+</h3>
+
+<h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+  2.2.1 La Circulación del Campo Eléctrico: \(\oint_C \mathbf{E} \cdot d\mathbf{l}\)
+</h4>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Definición:</b> Circulación es la integral de línea del campo eléctrico alrededor de una curva cerrada \(C\).
+  <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\oint_C \mathbf{E} \cdot d\mathbf{l}\]
+  </div>
+  donde:
+  <ul>
+    <li>\(\oint_C\): Integral sobre curva cerrada</li>
+    <li>\(\mathbf{E}\): Campo eléctrico</li>
+    <li>\(d\mathbf{l}\): Elemento vectorial tangente a la curva</li>
+  </ul>
+</div>
+<b>Producto escalar:</b>
+<div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+  \[\mathbf{E} \cdot d\mathbf{l} = |\mathbf{E}|\, |d\mathbf{l}| \cos\theta = E\, dl\, \cos\theta\]
+</div>
+<p>
+  <b>Interpretación física:</b> Mide la tendencia del campo eléctrico a "circundar" la curva cerrada.
+  <br><b>Unidades:</b> Voltios (V).
+</p>
+<div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+  <b>Relación con fuerza electromotriz (EMF):</b> En circuitos, la circulación del campo eléctrico inducido es igual a la <b>fuerza electromotriz (EMF)</b> inducida:
+  <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\mathcal{E} = \oint_C \mathbf{E} \cdot d\mathbf{l}\]
+  </div>
+  La EMF impulsa los portadores de carga alrededor del circuito.
+</div>
+
+<h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+  2.2.2 El Flujo Magnético: \(\Phi_B = \int_S \mathbf{B} \cdot d\mathbf{A}\)
+</h4>
+<p>El flujo magnético \(\Phi_B\) es la integral de superficie del campo magnético sobre la superficie \(S\) de borde \(C\).</p>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Definición:</b>
+  <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\Phi_B = \int_S \mathbf{B} \cdot d\mathbf{A}\]
+  </div>
+</div>
+<p><b>Propiedades:</b>
+  <ul>
+    <li>Depende de la superficie elegida: distintas superficies pueden dar distinto flujo para el mismo borde.</li>
+    <li><b>Unidades:</b> Weber (Wb), 1 Wb = 1 T·m².</li>
+    <li>Representa la cantidad de campo magnético que atraviesa la superficie.</li>
+  </ul>
+</p>
+
+<h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+  2.2.3 La Derivada Temporal del Flujo: \(-\frac{d}{dt}\int_S \mathbf{B} \cdot d\mathbf{A}\)
+</h4>
+<p>\(\frac{d\Phi_B}{dt}\) es la tasa de cambio temporal del flujo magnético.</p>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Definición:</b>
+  <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\frac{d\Phi_B}{dt} = \lim_{\Delta t \to 0} \frac{\Phi_B(t+\Delta t) - \Phi_B(t)}{\Delta t}\]
+  </div>
+</div>
+<b>Física:</b> El flujo puede cambiar porque cambia \(\mathbf{B}\) en el tiempo o porque la superficie/marco cambia.
+<br><b>Unidades:</b> Weber por segundo (Wb/s) o Voltios (V).
+<div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+  <b>Rol del signo negativo:</b> El signo negativo indica la Ley de Lenz: la EMF inducida se opone al cambio en flujo magnético.
+</div>
+
+<h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+  2.2.4 Relación de Orientación: Regla de la Mano Derecha
+</h4>
+<div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+  <b>Convención:</b> Curva tus dedos en la dirección de integración de \(C\); el pulgar apunta a la normal de superficie \(S\) (regla de la mano derecha).
+</div>
+<p>Esta regla es esencial para la correcta interpretación de los signos en la Ley de Faraday.</p>
+
+<h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+  2.3 Interpretación Física de la Forma Integral
+</h3>
+<p>La forma integral es <b>global</b>: relaciona la circulación total del campo eléctrico inducido alrededor de una curva cerrada con el cambio total de flujo magnético por la superficie limitada por esa curva.</p>
+<div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+  <b>Significado profundo:</b> Cualquier cambio de flujo magnético induce automáticamente una circulación del campo eléctrico alrededor de la frontera de esa superficie.
+</div>
+<b>Aplicación práctica – EMF inducida:</b> Para una bobina con \(N\) vueltas:
+<div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\mathcal{E} = -N\frac{d\Phi_B}{dt}\]
+</div>
+<p>La EMF inducida es proporcional al número de vueltas y a la rapidez de cambio del flujo magnético.</p>
+
+<h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+  2.4 Derivación de la Forma Diferencial desde la Forma Integral
+</h2>
+<p>
+  La forma diferencial puede derivarse rigurosamente de la forma integral aplicando el <strong>Teorema de Stokes</strong>.
+</p>
+<div class="subsection" style="margin-left:20px;background-color:#f7fafc;padding:20px;border-radius:8px;margin-top:20px;">
+  <p><b>Paso 1:</b> Aplicar el Teorema de Stokes al lado izquierdo:</p>
+  <div class="equation-block" style="background:#f7fafc;padding:15px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\oint_C \mathbf{E} \cdot d\mathbf{l} = \int_S (\nabla \times \mathbf{E}) \cdot d\mathbf{A}\]
+  </div>
+
+  <p><b>Paso 2:</b> Sustituir en la forma integral de Faraday:</p>
+  <div class="equation-block" style="background:#f7fafc;padding:15px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\int_S (\nabla \times \mathbf{E}) \cdot d\mathbf{A} = -\frac{d}{dt}\int_S \mathbf{B} \cdot d\mathbf{A}\]
+  </div>
+
+  <p><b>Paso 3:</b> Intercambiar derivada temporal e integral espacial (para superficies fijas):</p>
+  <div class="equation-block" style="background:#f7fafc;padding:15px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\int_S (\nabla \times \mathbf{E}) \cdot d\mathbf{A} = -\int_S \frac{\partial \mathbf{B}}{\partial t} \cdot d\mathbf{A}\]
+  </div>
+
+  <p><b>Paso 4:</b> Como esto debe cumplirse para <b>cualquier superficie</b> \(S\), los integrandos deben ser iguales en todo punto:</p>
+  <div class="equation-block" style="background:#f7fafc;padding:15px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+    \[\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}\]
+  </div>
+
+  <p>
+      Esta es la forma diferencial de la Ley de Faraday-Lenz.
+  </p>
+</div>
+    </section>
+
+    <!-- Ampére-Maxwell -->
+    <section id="ampere" class="card hidden">
+  <div class="container">
+    <div style="font-size:2rem;font-weight:bold;color:#2c5282;text-align:center;margin-bottom:18px;">
+      Ley de Ampére-Maxwell
+    </div>
+    <div class="intro" style="background:#edf2f7;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin-bottom:30px;">
+      <p>
+        La Ley de Ampére-Maxwell constituye la cuarta y final de las ecuaciones de Maxwell y representa una extensión profunda de la Ley de Ampére clásica. Esta ley establece cómo las corrientes eléctricas y los campos eléctricos variables en el tiempo generan campos magnéticos, cerrando así el círculo de la teoría electromagnética clásica y unificando completamente los fenómenos eléctricos y magnéticos.
+      </p>
+    </div>
+    <hr>
+
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      I. FORMA DIFERENCIAL DE LA LEY DE AMPERE-MAXWELL
+    </h2>
+    <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+      1.1 Enunciado Matemático
+    </h3>
+    <p>La forma diferencial de la Ley de Ampére-Maxwell se expresa con:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin:25px 0;">
+      \[\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}\]
+    </div>
+    <p>
+      El rotacional del campo magnético es igual a la suma de la densidad de corriente y el término de desplazamiento (variación temporal del campo eléctrico).
+    </p>
+
+    <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+      1.2 Análisis Detallado de los Componentes
+    </h3>
+    <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+      1.2.1 El Operador Rotacional: \(\nabla \times \mathbf{B}\)
+    </h4>
+    <p>
+      El rotacional mide la tendencia del campo magnético a formar remolinos. En coordenadas cartesianas:
+    </p>
+    <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+      <b>Definición:</b>
+      <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+        \[\nabla \times \mathbf{B} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ B_x & B_y & B_z \end{vmatrix}\]
+      </div>
+      O desarrollada:
+      <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+        \[\nabla \times \mathbf{B} = \left(\frac{\partial B_z}{\partial y} - \frac{\partial B_y}{\partial z}\right)\mathbf{i} + \left(\frac{\partial B_x}{\partial z} - \frac{\partial B_z}{\partial x}\right)\mathbf{j} + \left(\frac{\partial B_y}{\partial x} - \frac{\partial B_x}{\partial y}\right)\mathbf{k}\]
+      </div>
+      donde \(B_x, B_y, B_z\) son las componentes del campo magnético.
+    </div>
+    <b>Significado físico:</b>
+    <p>
+      Mide la circulación local o "remolino" del campo magnético.
+    </p>
+    <ul>
+      <li><b>En magnetostática</b> (\(\frac{\partial \mathbf{E}}{\partial t} = 0\)): Si no hay corrientes, el rotacional es cero.</li>
+      <li><b>En electrodinámica</b>: El rotacional puede ser diferente de cero según fuentes presentes.</li>
+    </ul>
+
+    <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+      1.2.2 El Campo Magnético: \(\mathbf{B}\)
+    </h4>
+    <p>
+      La <b>densidad de flujo magnético</b> describe la influencia magnética en el espacio, producida tanto por corrientes eléctricas como por campos eléctricos variables.
+    </p>
+    <p>
+      <b>Unidades:</b> Tesla (T)
+    </p>
+
+    <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+      1.2.3 El Primer Término: \(\mu_0 \mathbf{J}\)
+    </h4>
+    <p>
+      La densidad de corriente eléctrica, multiplicada por la permeabilidad magnética del vacío, representa la fuente clásica de campo magnético.
+    </p>
+    <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+      \[\mu_0 \mathbf{J}\]
+    </div>
+    <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+      <b>La permeabilidad magnética del vacío: \(\mu_0\)</b>
+      <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+        \[\mu_0 = 4\pi \times 10^{-7} \, \text{T·m/A}\]
+      </div>
+      <b>La densidad de corriente:</b>
+      <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+        \[\mathbf{J} = \rho_c \mathbf{v}\]
+      </div>
+      o bien
+      <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+        \[\mathbf{J} = \frac{d\mathbf{I}}{d\mathbf{A}}\]
+      </div>
+      <b>Unidades:</b> A/m²
+    </div>
+
+    <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+      1.2.4 El Segundo Término: \(\mu_0\epsilon_0 \frac{\partial \mathbf{E}}{\partial t}\)
+    </h4>
+    <p>
+      Este es el término revolucionario de Maxwell, que incorpora la <b>corriente de desplazamiento</b>.
+    </p>
+    <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+      \[\mu_0\epsilon_0 \frac{\partial \mathbf{E}}{\partial t}\]
+    </div>
+    <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+      <b>Corriente de desplazamiento:</b>
+      <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+        \[\mathbf{J}_d = \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}\]
+      </div>
+      <b>Producto \(\mu_0 \epsilon_0\) y velocidad de la luz:</b>
+      <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+        \[\mu_0\epsilon_0 = \frac{1}{c^2}\]
+      </div>
+      donde \(c\) es la <b>velocidad de la luz</b>.
+    </div>
+    <p>
+      Este término permite la propagación de ondas electromagnéticas en el vacío y unifica los fenómenos eléctricos y magnéticos.
+    </p>
+    <p><b>Unidades:</b> A/m²</p>
+    <p><b>Ejemplo:</b> En un condensador en carga, la corriente de desplazamiento mantiene la continuidad del campo magnético en la zona entre placas.</p>
+
+    <table>
+      <tr>
+        <th>Aspecto</th>
+        <th>Corriente Real</th>
+        <th>Corriente de Desplazamiento</th>
+      </tr>
+      <tr>
+        <td>Mecanismo</td>
+        <td>Movimiento de cargas eléctricas</td>
+        <td>Variación temporal de campo eléctrico</td>
+      </tr>
+      <tr>
+        <td>Ubicación</td>
+        <td>Conductores</td>
+        <td>Cualquier región del espacio</td>
+      </tr>
+      <tr>
+        <td>Unidades</td>
+        <td>A/m²</td>
+        <td>A/m²</td>
+      </tr>
+      <tr>
+        <td>Efecto magnético</td>
+        <td>Genera campo magnético</td>
+        <td>Genera campo magnético</td>
+      </tr>
+    </table>
+
+    <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+      1.3 Interpretación Física de la Forma Diferencial
+    </h3>
+    <p>
+      La forma diferencial establece que los campos magnéticos pueden ser generados por dos “fuentes”: corrientes eléctricas reales (<b>J</b>) y la corriente de desplazamiento (cambios temporales en el campo eléctrico).
+    </p>
+    <div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+      <b>Simetría con Faraday-Lenz</b><br>
+      <ul>
+        <li><b>Faraday-Lenz:</b> Campos magnéticos variables generan campos eléctricos.</li>
+        <li><b>Ampére-Maxwell:</b> Campos eléctricos variables generan campos magnéticos.</li>
+      </ul>
+    </div>
+
+    <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+      1.4 Consecuencias de la Forma Diferencial
+    </h3>
+    <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+      <b>Consecuencia 1: Existencia de ondas electromagnéticas</b>
+      <p>
+        Aplicando el rotacional y la Ley de Faraday-Lenz se obtiene:
+      </p>
+      <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+        \[\nabla^2 \mathbf{E} = \mu_0 \epsilon_0 \frac{\partial^2 \mathbf{E}}{\partial t^2}\]
+      </div>
+      <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+        \[\nabla^2 \mathbf{B} = \mu_0 \epsilon_0 \frac{\partial^2 \mathbf{B}}{\partial t^2}\]
+      </div>
+      <p>Estas describen la propagación de ondas electromagnéticas a velocidad \(c = \frac{1}{\sqrt{\mu_0\epsilon_0}}\).</p>
+    </div>
+
+    <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+      <b>Consecuencia 2: La luz como onda electromagnética</b>
+      <p>
+        La identificación de \(c = \frac{1}{\sqrt{\mu_0 \epsilon_0}}\) muestra que la luz es una onda electromagnética, predicción confirmada por la experiencia.
+      </p>
+    </div>
+
+    <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+      <b>Consecuencia 3: Generación de radiación electromagnética</b>
+      <p>
+        Cargas aceleradas y corrientes variables pueden producir radiación electromagnética, como ocurre en antenas.
+      </p>
+    </div>
+  </div>
+
+  <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+    II. FORMA INTEGRAL DE LA LEY DE AMPERE-MAXWELL
+  </h2>
+  
+  <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+    2.1 Enunciado Matemático
+  </h3>
+  <p>La forma integral de la Ley de Ampére-Maxwell se expresa mediante la siguiente ecuación:</p>
+  <div class="equation-block" style="background:#f7fafc;padding:25px;border-radius:8px;border-left:5px solid #4299e1;margin:25px 0;">
+    \[\oint_C \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{enc} + \mu_0 \epsilon_0 \frac{d}{dt}\int_S \mathbf{E} \cdot d\mathbf{A}\]
+  </div>
+  <p>
+    La <b>circulación del campo magnético alrededor de una curva cerrada</b> es igual a la suma de dos términos: la corriente total encerrada y la tasa de cambio del flujo eléctrico a través de la superficie limitada por la curva.
+  </p>
+  
+  <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+    2.2 Análisis Detallado de los Componentes
+  </h3>
+  
+  <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+    2.2.1 La Circulación del Campo Magnético: \(\oint_C \mathbf{B} \cdot d\mathbf{l}\)
+  </h4>
+  <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+    <b>Definición:</b>
+    <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+      \[\oint_C \mathbf{B} \cdot d\mathbf{l}\]
+    </div>
+    Es la integral de línea del campo magnético a lo largo de una curva cerrada \(C\).
+  </div>
+  <p>
+    <b>Interpretación física:</b> Mide la tendencia del campo magnético a "circundar" la curva cerrada.
+    <br><b>Unidades:</b> Tesla-metro (T·m)
+  </p>
+  <div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+    <b>Ley de Ampére clásica:</b>
+    <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+      \[\oint_C \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{enc} \]
+    </div>
+    (Cuando no hay campos eléctricos variables).
+  </div>
+  
+  <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+    2.2.2 La Corriente Total Encerrada: \(I_{enc}\)
+  </h4>
+  <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+    <b>Definición:</b>
+    <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+      \[I_{enc} = \int_S \mathbf{J} \cdot d\mathbf{A}\]
+    </div>
+    Suma algebraica de todas las corrientes eléctricas que atraviesan la superficie limitada por \(C\).
+  </div>
+  <p>
+    <b>Regla de la mano derecha:</b> Si los dedos giran en la dirección de integración, el pulgar apunta hacia la dirección positiva de la corriente.
+    <br><b>Unidades:</b> Amperio (A)
+  </p>
+  
+  <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+    2.2.3 El Flujo Eléctrico: \(\int_S \mathbf{E} \cdot d\mathbf{A}\)
+  </h4>
+  <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+    <b>Definición:</b>
+    <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+      \[\Phi_E = \int_S \mathbf{E} \cdot d\mathbf{A}\]
+    </div>
+  </div>
+  <p><b>Unidades:</b> Voltio-metro (V·m).<br>
+    <b>Interpretación:</b> Es la cantidad de campo eléctrico que atraviesa la superficie.</p>
+  
+  <h4 style="color:#4a5568;margin-top:25px;margin-bottom:12px;font-size:1.2em;font-style:italic;">
+    2.2.4 Derivada Temporal del Flujo Eléctrico: \(\frac{d}{dt}\int_S \mathbf{E} \cdot d\mathbf{A}\)
+  </h4>
+  <div class="definition" style="background:#fff5f5;padding:20px;border-radius:8px;border-left:5px solid #fc8181;margin:20px 0;">
+    <b>Definición:</b>
+    <div class="equation-block" style="background:#f7fafc;padding:20px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+      \[\frac{d\Phi_E}{dt} = \frac{d}{dt}\int_S \mathbf{E} \cdot d\mathbf{A}\]
+    </div>
+    Es la tasa de cambio temporal del flujo eléctrico a través de la superficie.
+  </div>
+  <p><b>Unidades:</b> Voltio-metro por segundo (V·m/s).<br>
+    <b>Significado:</b> Cuantifica cómo cambia el flujo eléctrico por la superficie.
+  </p>
+  
+  <h3 style="color:#2d3748;margin-top:30px;margin-bottom:15px;">
+    2.3 Interpretación Física de la Forma Integral
+  </h3>
+  <p>
+    La forma integral es <b>global:</b> la circulación del campo magnético alrededor de una curva cerrada es generada por dos mecanismos: las corrientes eléctricas que atraviesan la superficie y los campos eléctricos variables que generan corriente de desplazamiento.
+  </p>
+  <div class="note" style="background:#fffaf0;padding:20px;border-radius:8px;border-left:5px solid #ed8936;margin:20px 0;">
+    <b>Ambos mecanismos contribuyen al campo magnético:</b>
+    <ol>
+      <li>Corrientes eléctricas reales</li>
+      <li>La “corriente de desplazamiento” por variación temporal del campo eléctrico</li>
+    </ol>
+  </div>
+  
+  <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+    2.4 Derivación de la Forma Diferencial desde la Integral
+  </h2>
+  <div class="subsection" style="margin-left:20px;background-color:#f7fafc;padding:20px;border-radius:8px;margin-top:20px;">
+    <p><b>Paso 1:</b> Aplicar el Teorema de Stokes al lado izquierdo:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:15px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+      \[\oint_C \mathbf{B} \cdot d\mathbf{l} = \int_S (\nabla \times \mathbf{B}) \cdot d\mathbf{A}\]
+    </div>
+    <p><b>Paso 2:</b> Sustituir en la forma integral de Ampére-Maxwell:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:15px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+      \[\int_S (\nabla \times \mathbf{B}) \cdot d\mathbf{A} = \mu_0 \int_S \mathbf{J} \cdot d\mathbf{A} + \mu_0 \epsilon_0 \frac{d}{dt}\int_S \mathbf{E} \cdot d\mathbf{A}\]
+    </div>
+    <p><b>Paso 3:</b> Intercambiar derivadas temporal y espacial (para superficies fijas):</p>
+    <div class="equation-block" style="background:#f7fafc;padding:15px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+      \[\int_S (\nabla \times \mathbf{B}) \cdot d\mathbf{A} = \int_S \mu_0 \mathbf{J} \cdot d\mathbf{A} + \int_S \mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}\cdot d\mathbf{A}\]
+    </div>
+    <p><b>Paso 4:</b> Como esto debe cumplirse para <b>cualquier superficie</b> \(S\), los integrandos deben ser iguales en todo punto:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:15px;border-radius:8px;border-left:5px solid #4299e1;margin:20px 0;">
+      \[\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}\]
+    </div>
+    <p>
+      Así se obtiene la forma diferencial de la Ley de Ampére-Maxwell.
+    </p>
+  </div>
+
+    </section>
+
+<section id="relacionOEM" class="card hidden">
+  <div class="container">
+    <div style="font-size:2rem;font-weight:bold;color:#2c5282;text-align:center;margin-bottom:18px;">
+      La Relación entre las Ecuaciones de Maxwell y la Propagación de Ondas Electromagnéticas
+    </div>
+
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      Introducción
+    </h2>
+    <p>
+      Las Ecuaciones de Maxwell, junto con la Ley de Lorentz, constituyen la base matemática del electromagnetismo clásico. La relación más profunda y revolucionaria es que estas ecuaciones predicen la existencia de <strong>ondas electromagnéticas</strong> que se propagan en el espacio vacío a la <strong>velocidad de la luz</strong>, descubrimiento que unificó la óptica con el electromagnetismo.
+    </p>
+
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      I. DERIVACIÓN DE LA ECUACIÓN DE ONDA ELECTROMAGNÉTICA
+    </h2>
+
+    <h3 style="color:#2d3748;margin-top:28px;margin-bottom:14px;">
+      1.1 Punto de partida: Las Ecuaciones de Maxwell
+    </h3>
+    <p>Las cuatro ecuaciones de Maxwell en el vacío (sin cargas ni corrientes, es decir, \(\rho = 0\) y \(\mathbf{J} = 0\)):</p>
+    <ul>
+      <li><strong>1. Ley de Gauss (Electricidad):</strong></li>
+    </ul>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\nabla \cdot \mathbf{E} = 0\]
+    </div>
+    <ul>
+      <li><strong>2. Ley de Gauss (Magnetismo):</strong></li>
+    </ul>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\nabla \cdot \mathbf{B} = 0\]
+    </div>
+    <ul>
+      <li><strong>3. Ley de Faraday-Lenz:</strong></li>
+    </ul>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}\]
+    </div>
+    <ul>
+      <li><strong>4. Ley de Ampère-Maxwell (sin corrientes):</strong></li>
+    </ul>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\nabla \times \mathbf{B} = \mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}\]
+    </div>
+
+    <h3 style="color:#2d3748;margin-top:28px;margin-bottom:14px;">
+      1.2 Derivación paso a paso
+    </h3>
+    <ul>
+      <li><strong>Paso 1:</strong> Aplicar el rotacional a ambos lados de la Ley de Faraday-Lenz:</li>
+    </ul>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\nabla \times (\nabla \times \mathbf{E}) = \nabla \times \left(-\frac{\partial \mathbf{B}}{\partial t}\right)\]
+    </div>
+    <ul>
+      <li><strong>Paso 2:</strong> Usar la identidad vectorial:</li>
+    </ul>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\nabla \times (\nabla \times \mathbf{E}) = \nabla (\nabla \cdot \mathbf{E}) - \nabla^2 \mathbf{E}\]
+    </div>
+    <ul>
+      <li><strong>Paso 3:</strong> Como \(\nabla \cdot \mathbf{E} = 0\) (Ley de Gauss sin cargas):</li>
+    </ul>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[-\nabla^2 \mathbf{E} = -\frac{\partial}{\partial t}(\nabla \times \mathbf{B})\]
+    </div>
+    <ul>
+      <li><strong>Paso 4:</strong> Sustituir la Ley de Ampère-Maxwell:</li>
+    </ul>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[-\nabla^2 \mathbf{E} = -\frac{\partial}{\partial t}\left(\mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}\right)\]
+    </div>
+    <ul>
+      <li><strong>Paso 5:</strong> Simplificar:</li>
+    </ul>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\nabla^2 \mathbf{E} = \mu_0 \epsilon_0 \frac{\partial^2 \mathbf{E}}{\partial t^2}\]
+    </div>
+    <p>De manera análoga, para el campo magnético:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\nabla^2 \mathbf{B} = \mu_0 \epsilon_0 \frac{\partial^2 \mathbf{B}}{\partial t^2}\]
+    </div>
+
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      II. LA ECUACIÓN DE ONDA ESTÁNDAR
+    </h2>
+    <p>Estas son ecuaciones de onda tridimensionales de la forma:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\nabla^2 f = \frac{1}{v^2} \frac{\partial^2 f}{\partial t^2}\]
+    </div>
+    <p>donde \(v\) es la <strong>velocidad de propagación de la onda</strong>.</p>
+    <p>Comparando con la ecuación de onda electromagnética:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[v = \frac{1}{\sqrt{\mu_0 \epsilon_0}}\]
+    </div>
+
+    <h3 style="color:#2d3748;margin-top:28px;margin-bottom:14px;">
+      2.1 Cálculo de la velocidad
+    </h3>
+    <p>Sustituyendo los valores de las constantes:</p>
+    <ul>
+      <li>\(\mu_0 = 4\pi \times 10^{-7}\) T·m/A</li>
+      <li>\(\epsilon_0 = 8.854 \times 10^{-12}\) F/m</li>
+    </ul>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[v = \frac{1}{\sqrt{(4\pi \times 10^{-7})(8.854 \times 10^{-12})}} \approx 3 \times 10^8 \text{ m/s}\]
+    </div>
+    <p>Este valor es exactamente la velocidad de la luz en el vacío:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[c = 299,792,458 \text{ m/s} \approx 3 \times 10^8 \text{ m/s}\]
+    </div>
+
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      III. SOLUCIONES ONDULATORIAS
+    </h2>
+    <h3 style="color:#2d3748;margin-top:28px;margin-bottom:14px;">
+      3.1 Forma de las ondas electromagnéticas
+    </h3>
+    <p>
+      Las soluciones a las ecuaciones de onda son ondas electromagnéticas <strong>planas</strong> que pueden expresarse como:
+    </p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\mathbf{E}(\mathbf{r}, t) = \mathbf{E}_0 \cos(\mathbf{k} \cdot \mathbf{r} - \omega t + \phi)\]
+      <br>
+      \[\mathbf{B}(\mathbf{r}, t) = \mathbf{B}_0 \cos(\mathbf{k} \cdot \mathbf{r} - \omega t + \phi)\]
+    </div>
+    <ul>
+      <li>\(\mathbf{E}_0\) y \(\mathbf{B}_0\) son las amplitudes de los campos</li>
+      <li>\(\mathbf{k}\) es el vector de onda (\(k = \frac{2\pi}{\lambda}\))</li>
+      <li>\(\omega\) es la frecuencia angular (\(\omega = 2\pi f\))</li>
+      <li>\(\lambda\) es la longitud de onda</li>
+      <li>f es la frecuencia</li>
+      <li>\(\phi\) es la fase inicial</li>
+    </ul>
+
+    <h3 style="color:#2d3748;margin-top:28px;margin-bottom:14px;">
+      3.2 Relación de dispersión
+    </h3>
+    <p>La ecuación de onda implica la relación:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\omega = c k\]
+    </div>
+    <p>O equivalentemente:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[c = f \lambda\]
+    </div>
+    <p>Esta es la <strong>relación fundamental</strong> entre frecuencia, longitud de onda y velocidad de propagación.</p>
+
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      IV. PROPIEDADES FUNDAMENTALES DE LAS ONDAS ELECTROMAGNÉTICAS
+    </h2>
+    <h3 style="color:#2d3748;margin-top:28px;margin-bottom:14px;">
+      4.1 Ortogonalidad de los campos
+    </h3>
+    <ul>
+      <li>De la Ley de Gauss sin cargas (\(\nabla \cdot \mathbf{E} = 0\)): El campo eléctrico es <strong>perpendicular a la dirección de propagación</strong></li>
+      <li>De la Ley de Gauss para el magnetismo (\(\nabla \cdot \mathbf{B} = 0\)): El campo magnético es <strong>perpendicular a la dirección de propagación</strong></li>
+      <li>De la Ley de Faraday-Lenz: Los campos \(\mathbf{E}\) y \(\mathbf{B}\) son perpendiculares entre sí</li>
+    </ul>
+    <p>Por lo tanto, las ondas electromagnéticas son <strong>transversales</strong>.</p>
+
+    <h3 style="color:#2d3748;margin-top:28px;margin-bottom:14px;">
+      4.2 Relación entre amplitudes
+    </h3>
+    <p>De las ecuaciones de Maxwell, se puede demostrar que:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\frac{E_0}{B_0} = c\]
+    </div>
+    <p>Es decir, la razón entre las amplitudes del campo eléctrico y magnético es exactamente la velocidad de la luz.</p>
+
+    <h3 style="color:#2d3748;margin-top:28px;margin-bottom:14px;">
+      4.3 Energía transportada
+    </h3>
+    <p>La <strong>densidad de energía</strong> instantánea en una onda electromagnética es:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[u(t) = \frac{1}{2}\left(\epsilon_0 E^2 + \frac{B^2}{\mu_0}\right)\]
+    </div>
+    <p>Para una onda plana, ambos términos contribuyen por igual. La <strong>densidad de energía promedio</strong> es:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\langle u \rangle = \frac{1}{2}\epsilon_0 E_0^2\]
+    </div>
+    <p>El <strong>vector de Poynting</strong> (flujo de energía electromagnética) es:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[\mathbf{S} = \frac{1}{\mu_0}(\mathbf{E} \times \mathbf{B})\]
+    </div>
+    <p>Su magnitud promedio es la <strong>intensidad</strong> de la onda:</p>
+    <div class="equation-block" style="background:#f7fafc;padding:18px;margin:22px 0;border-radius:8px;border-left:5px solid #4299e1;overflow-x:auto;text-align:center;">
+      \[I = \frac{1}{2}\epsilon_0 c E_0^2\]
+    </div>
+
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      V. EL ESPECTRO ELECTROMAGNÉTICO
+    </h2>
+    <p>
+      La predicción de Maxwell de que todas las ondas electromagnéticas viajan a la velocidad \(c\) fue revolucionaria. Posteriormente se descubrió que la luz visible es solo una pequeña parte de un espectro mucho más amplio:
+    </p>
+    <table>
+      <tr>
+        <th>Tipo de Radiación</th>
+        <th>Rango de Frecuencia</th>
+        <th>Rango de Longitud de Onda</th>
+      </tr>
+      <tr><td>Ondas de Radio</td><td>3 kHz - 300 GHz</td><td>100 km - 1 mm</td></tr>
+      <tr><td>Microondas</td><td>300 MHz - 300 GHz</td><td>1 mm - 1 cm</td></tr>
+      <tr><td>Infrarrojo</td><td>300 GHz - 430 THz</td><td>700 nm - 1 mm</td></tr>
+      <tr><td>Luz Visible</td><td>430 THz - 770 THz</td><td>380 nm - 700 nm</td></tr>
+      <tr><td>Ultravioleta</td><td>770 THz - 30 PHz</td><td>10 nm - 380 nm</td></tr>
+      <tr><td>Rayos X</td><td>30 PHz - 30 EHz</td><td>0.01 nm - 10 nm</td></tr>
+      <tr><td>Rayos Gamma</td><td>&gt;30 EHz</td><td>&lt;0.01 nm</td></tr>
+    </table>
+    <p>
+      Todas estas radiaciones satisfacen las ecuaciones de Maxwell y se propagan a la velocidad \(c\).
+    </p>
+
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      VI. CONFIRMACIÓN EXPERIMENTAL
+    </h2>
+    <h3 style="color:#2d3748;margin-top:28px;margin-bottom:14px;">
+      6.1 Heinrich Hertz (1887)
+    </h3>
+    <p>
+      En 1887, Heinrich Hertz confirmó experimentalmente las predicciones de Maxwell generando y detectando ondas electromagnéticas. Sus experimentos demostraron:
+    </p>
+    <ul>
+      <li>Las ondas electromagnéticas viajan a la velocidad de la luz</li>
+      <li>Las ondas se reflejan, refractan e interfieren como predice la teoría</li>
+      <li>Las propiedades de polarización, reflexión y refracción coinciden perfectamente con la teoría ondulatoria</li>
+    </ul>
+    <h3 style="color:#2d3748;margin-top:28px;margin-bottom:14px;">
+      6.2 Aplicaciones tecnológicas
+    </h3>
+    <p>
+      La relación entre las Ecuaciones de Maxwell y las ondas electromagnéticas ha permitido desarrollar:
+    </p>
+    <ul>
+      <li>Comunicaciones inalámbricas: radio, televisión, Wi-Fi, comunicaciones por satélite</li>
+      <li>Energía solar: conversión de radiación electromagnética en electricidad</li>
+      <li>Medicina: tomografía, resonancia magnética, radiología</li>
+      <li>Ciencia: espectroscopia, astronomía, microscopía</li>
+    </ul>
+
+    <h2 style="color:#2c5282;border-left:5px solid #2b6cb0;padding-left:20px;">
+      VII. RESUMEN DE LA CONEXIÓN
+    </h2>
+    <ol>
+      <li><strong>Las Ecuaciones de Maxwell en el vacío</strong> (sin cargas ni corrientes) predicen matemáticamente la existencia de ondas electromagnéticas</li>
+      <li><strong>La manipulación algebraica</strong> de estas ecuaciones produce ecuaciones de onda clásicas para \(\mathbf{E}\) y \(\mathbf{B}\)</li>
+      <li><strong>La velocidad de propagación</strong> obtenida de las ecuaciones de onda es \(c = \frac{1}{\sqrt{\mu_0 \epsilon_0}}\), exactamente la velocidad de la luz</li>
+      <li><strong>Esta identificación</strong> sugiere y posteriormente confirma que <strong>la luz es una onda electromagnética</strong></li>
+      <li><strong>Las propiedades de las ondas electromagnéticas</strong> derivadas de las ecuaciones de Maxwell (ortogonalidad, transversalidad, relación entre amplitudes) son confirmadas experimentalmente</li>
+      <li><strong>Todo el espectro electromagnético</strong> (desde ondas de radio hasta rayos gamma) obedece las Ecuaciones de Maxwell y se propaga a velocidad \(c\)</li>
+    </ol>
+  </div>
+</section>
+
+
+<section id="referencias" class="card hidden">
+  <div class="container">
+    <div style="font-size:2rem;font-weight:bold;color:#2c5282;text-align:center;margin-bottom:18px;">
+      Referencias y Bibliografía
+    </div>
+    <ul style="margin-top:28px;">
+      <li><b>Wikipedia, Conceptos Fundamentales:</b>
+        <ul>
+          <li><a href="https://es.wikipedia.org/wiki/Ley_de_Gauss" target="_blank">Ley de Gauss</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/Ley_de_Gauss_para_el_magnetismo" target="_blank">Ley de Gauss para el magnetismo</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/Ley_de_Faraday" target="_blank">Ley de Faraday</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Lenz's_law" target="_blank">Ley de Lenz (en inglés)</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/Ecuaciones_de_Maxwell" target="_blank">Ecuaciones de Maxwell</a></li>
+          <li><a href="https://es.wikipedia.org/wiki/Teorema_de_Stokes" target="_blank">Teorema de Stokes</a></li>
+        </ul>
+      </li>
+      <li><b>Libros de texto, OpenStax y LibreTexts:</b>
+        <ul>
+          <li><a href="https://openstax.org/books/f%C3%ADsica-universitaria-volumen-2/pages/6-2-explicar-la-ley-de-gauss" target="_blank">Física universitaria: Ley de Gauss (OpenStax)</a></li>
+          <li><a href="https://espanol.libretexts.org/Fisica/Libro:_Fisica_Basada_en_Calculo_(Schnick)/Volumen_B:_Electricidad,_Magnetismo_y_%C3%93ptica/B35:_Revisi%C3%B3n_de_la_Ley_de_Gauss_para_el_Campo_Magn%C3%A9tico_y_la_Ley_de_Amperios" target="_blank">Ley de Gauss para el campo magnético y Ley de Ampère (LibreTexts)</a></li>
+          <li><a href="https://openstax.org/books/physics/pages/20-3-electromagnetic-induction" target="_blank">Inducción Electromagnética (OpenStax)</a></li>
+          <li><a href="https://openstax.org/books/f%C3%ADsica-universitaria-volumen-2/pages/6-6-las-ecuaciones-de-maxwell" target="_blank">Las ecuaciones de Maxwell (OpenStax)</a></li>
+        </ul>
+      </li>
+      <li><b>Tutoriales académicos y portales:</b>
+        <ul>
+          <li><a href="https://www.britannica.com/science/Lenzs-law" target="_blank">Lenz's Law - Britannica</a></li>
+          <li><a href="https://es.khanacademy.org/math/multivariable-calculus/greens-theorem-and-stokes-theorem/stokes-theorem-articles/a/stokes-theorem" target="_blank">Teorema de Stokes - Khan Academy</a></li>
+          <li><a href="https://brilliant.org/wiki/magnetic-flux-and-faradays-law-quantitative/" target="_blank">Magnetic Flux and Faraday's Law - Brilliant</a></li>
+          <li><a href="https://em.geosci.xyz/content/maxwell1_fundamentals/formative_laws/gauss_magnetic.html" target="_blank">Gauss’s Law for Magnetic Fields - EM GeoSci</a></li>
+          <li><a href="https://em.geosci.xyz/content/maxwell1_fundamentals/formative_laws/faraday.html" target="_blank">Faraday's Law — Electromagnetic Geophysics - EM GeoSci</a></li>
+        </ul>
+      </li>
+      <li><b>Recursos, resúmenes y material adicional:</b>
+        <ul>
+          <li><a href="https://www.significados.com/ley-de-faraday/" target="_blank">Significados.com - Ley de Faraday</a></li>
+          <li><a href="https://concepto.de/ley-de-faraday/" target="_blank">Concepto.de - Ley de Faraday</a></li>
+          <li><a href="https://www.studocu.com/fr/document/esam-school-of-management-and-finance/master-of-science/ley-de-gauss-para-el-magnetismo-apa-2025/132183579" target="_blank">Studocu - Ley de Gauss para el Magnetismo</a></li>
+          <li><a href="https://www.studysmarter.es/resumenes/fisica/interaccion-electromagnetica/ley-de-faraday-lenz/" target="_blank">Studysmarter - Ley de Faraday-Lenz</a></li>
+        </ul>
+      </li>
+      <li><b>Otras fuentes universitarias e internacionales:</b>
+        <ul>
+          <li><a href="https://phys.libretexts.org/Bookshelves/College_Physics/College_Physics_1e_(OpenStax)/23:_Electromagnetic_Induction_AC_Circuits_and_Electrical_Technologies/23.05:_Faradays_Law_of_Induction-_Lenzs_Law" target="_blank">LibreTexts - Faraday’s Law of Induction-Lenz's Law</a></li>
+          <li><a href="https://www.electronics-tutorials.ws/electromagnetism/electromagnetic-induction.html" target="_blank">Electronics Tutorials - Electromagnetic Induction</a></li>
+          <li><a href="https://web.mit.edu/8.02t/www/802TEAL3D/visualizations/coursenotes/modules/guide10.pdf" target="_blank">MIT OpenCourseWare - Guía de inducción electromagnética (PDF)</a></li>
+          <li><a href="http://hyperphysics.phy-astr.gsu.edu/hbasees/electric/farlaw.html" target="_blank">HyperPhysics - Faraday Law</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="note" style="background:#fffaf0;padding:16px;border-radius:8px;border-left:5px solid #ed8936;margin:16px 0;">
+      Haz clic en cada enlace para consultar la referencia original. Todas fueron revisadas para asegurar precisión y calidad en este documento.
+    </div>
+  </div>
+</section>
+
+
+
+
+  </main>
+  <div class="footer">
+    Página creada por Valentina Cruz - JN&copy; 2025 — Editable y hecha para aprender.
+  </div>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section.card').forEach(s=>s.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+      // Scroll al inicio de la sección, mejora experiencia en páginas largas
+      window.scrollTo(0, 0);
+    }
+    function toggleExtra(eid) {
+      let elm = document.getElementById(eid);
+      elm.classList.toggle('hidden');
+      if (window.MathJax) MathJax.typeset(); // Refresca MathJax cuando se muestra/cierra
+    }
+    // Marcar activo el botón del menú:
+    document.querySelectorAll('.menu-btn').forEach(btn=>{
+      btn.onclick= function(){
+        document.querySelectorAll('.menu-btn').forEach(b=>b.classList.remove('active'));
+        this.classList.add('active');
+        showSection(this.getAttribute('onclick').match(/'(.*)'/)[1]);
+      };
+    });
+  </script>
+  </body>
+  </html>
